@@ -1,0 +1,128 @@
+" +-+-+-+-+-+-+-+
+" +   plugins   +
+" +-+-+-+-+-+-+-+
+set surround
+set ideajoin
+set NERDTree
+set multiple-cursors
+
+" +-+-+-+-+-+-+
+" +  setter   +
+" +-+-+-+-+-+-+
+set nu
+set so=8
+set cb=unnamedplus
+set ignorecase
+set smartcase
+
+" -- Normal --
+" -- Better window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" -- Navigate buffers
+nnoremap <S-l> :action NextTab<CR>
+nnoremap <S-h> :action PreviousTab<CR>
+
+" -- Move text up and down
+nnoremap <A-k> <Esc>:action MoveLineUp<CR>
+nnoremap <A-j> <Esc>:action MoveLineDown<CR>
+
+" -- Move text up and down
+xmap <A-j> :action MoveLineDown<CR>
+xmap <A-k> :action MoveLineUp<CR>
+
+" Refactorings
+vnoremap T :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>rr :action RenameElement<CR>
+nnoremap <leader>rg :action Generate<CR>
+nnoremap <leader>rI :action OptimizeImports<CR>
+" Inspection
+nnoremap <leader>rc :action InspectCode<CR>
+" View Recent Files
+nnoremap <leader>a :action RecentChangedFiles<CR>
+
+" unimpaired mappings - from https://github.com/saaguero/ideavimrc/blob/master/.ideavimrc
+nnoremap [<space> O<esc>j<CR>
+nnoremap ]<space> o<esc>k<CR>
+nnoremap [q :action PreviousOccurence<CR>
+nnoremap ]q :action NextOccurence<CR>
+nnoremap [m :action MethodUp<CR>
+nnoremap ]m :action MethodDown<CR>
+nnoremap [c :action VcsShowPrevChangeMarker<CR>
+nnoremap ]c :action VcsShowNextChangeMarker<CR>
+
+
+" Search
+nnoremap <leader>/ :action Find<CR>
+nnoremap <leader>\ :action FindInPath<CR>
+
+" Moving statements
+nnoremap [s :action MoveStatementUp<CR>
+nnoremap ]s :action MoveStatementDown<CR>
+
+" IdeaVim Maps
+nnoremap <leader>h :action QuickJavaDoc
+nnoremap <leader>e :action ShowErrorDescription
+
+" +-+-+-+-+-+-+-+-+-+-+
+" +     which-key     +
+" +-+-+-+-+-+-+-+-+-+-+
+
+set which-key
+set notimeout
+
+let mapleader=" "
+
+nnoremap <leader><leader> :action Switcher<CR>
+let g:WhichKeyDesc_switcher             = "<leader><leader> Switcher"
+
+nnoremap <leader>w :action SaveAll<CR>
+let g:WhichKeyDesc_write                = "<leader>w Save All"
+
+let g:WhichKeyDesc_popup                = "<leader>m +Popup Menu"
+nnoremap <leader>mg :action Vcs.QuickListPopupAction<CR>
+let g:WhichKeyDesc_popup_git            = "<leader>mg git"
+nnoremap <leader>m; :action Refactorings.QuickListPopupAction<CR>
+let g:WhichKeyDesc_popup_quick_list     = "<leader>m; Refactor"
+nnoremap <leader>mm :action EditorPopupMenu<CR>
+let g:WhichKeyDesc_popup_editor         = "<leader>mm Editor"
+nnoremap <leader>mt :action EditorTabPopupMenu<CR>
+let g:WhichKeyDesc_popup_tab            = "<leader>mt Tab"
+nnoremap <leader>mr :action ChooseRunConfiguration<CR>
+let g:WhichKeyDesc_popup_run            = "<leader>mr Run"
+
+let g:WhichKeyDesc_bookmark             = "<leader>b +Bookmark"
+nnoremap <leader>ba :action ToggleBookmarkWithMnemonic<CR>
+let g:WhichKeyDesc_bookmark_add         = "<leader>ba add"
+nnoremap <leader>bb :action ShowTypeBookmarks<CR>
+let g:WhichKeyDesc_bookmark_go         = "<leader>bb go to"
+nnoremap <leader>bm :action ActivateBookmarksToolWindow<CR>
+let g:WhichKeyDesc_bookmark_menu       = "<leader>bm menu"
+
+
+" +-+-+-+-+-+-+-+-+
+" +   override    +
+" +-+-+-+-+-+-+-+-+
+sethandler <C-2> n:vim
+sethandler <C-S-2> n:vim
+sethandler <C-S-6> n:vim
+sethandler <C-B> n:vim
+sethandler <C-D> n:vim
+sethandler <C-F> n:vim
+sethandler <C-G> a:vim
+sethandler <C-H> n:vim
+sethandler <C-I> n:vim
+sethandler <C-J> n:vim
+sethandler <C-K> n:vim
+sethandler <C-L> n:vim
+sethandler <C-M> n:vim
+sethandler <C-N> n:vim
+sethandler <C-O> n:vim
+sethandler <C-P> n:vim
+sethandler <C-R> n:vim
+sethandler <C-S> n:vim
+sethandler <C-T> n:vim
+sethandler <C-V> n:vim

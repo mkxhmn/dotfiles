@@ -1,0 +1,3 @@
+--dir=~/.dotfiles/bat
+--target=~/.config/bat
+--ignore=.stowrc

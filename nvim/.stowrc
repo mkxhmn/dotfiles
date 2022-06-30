@@ -1,0 +1,4 @@
+--dir=~/.dotfiles/nvim
+--target=~/.config/nvim
+--ignore=.stowrc
+--ignore=.github

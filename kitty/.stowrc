@@ -1,0 +1,3 @@
+--dir=~/.dotfiles/kitty
+--target=~/.config/kitty
+--ignore=.stowrc
