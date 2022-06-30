@@ -12,8 +12,8 @@
 1. [Neovim Startring Point](https://github.com/LunarVim/nvim-basic-ide)
 
 ### Special gratitude to 
-1. @tjdevries 
-2. @ChristianChiarulli
+1. [@tjdevries](https://github.com/tjdevries) 
+2. [@ChristianChiarulli](https://github.com/ChristianChiarulli)
 
 
 
