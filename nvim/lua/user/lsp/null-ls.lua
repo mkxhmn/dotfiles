@@ -18,7 +18,7 @@ null_ls.setup({
 	sources = {
     --formatting
 		formatting.prettier.with({
-			extra_filetypes = { "toml", "md" },
+			extra_filetypes = { "toml", "md", "json" },
 		}),
 		formatting.stylua,
 
