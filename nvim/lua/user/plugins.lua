@@ -90,6 +90,9 @@ return packer.startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter-textobjects", after = { "nvim-treesitter" } })
 	use({ "RRethy/nvim-treesitter-textsubjects", after = { "nvim-treesitter" } })
 
+	-- search and replace
+	use({ "nvim-pack/nvim-spectre" })
+
 	-- Git
 	use({ "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" })
 
