@@ -1,17 +1,54 @@
 local M = {}
 
 local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_cmp_ok then
-	return
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
+
+if status_cmp_ok then
+	M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
+	M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+	M.capabilities.textDocument.completion.completionItem.preselectSupport = true
+	M.capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+	M.capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+	M.capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+	M.capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+	M.capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
+	M.capabilities.textDocument.completion.completionItem.resolveSupport = {
+		properties = {
+			"documentation",
+			"detail",
+			"additionalTextEdits",
+		},
+	}
+	M.capabilities.textDocument.codeAction = {
+		dynamicRegistration = false,
+		codeActionLiteralSupport = {
+			codeActionKind = {
+				valueSet = {
+					"",
+					"quickfix",
+					"refactor",
+					"refactor.extract",
+					"refactor.inline",
+					"refactor.rewrite",
+					"source",
+					"source.organizeImports",
+				},
+			},
+		},
+	}
 end
 
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
+M.handlers = {
+	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+		border = "rounded",
+	}),
+	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+		border = "rounded",
+	}),
+}
 
 M.setup = function()
 	local signs = {
-
 		{ name = "DiagnosticSignError", text = "" },
 		{ name = "DiagnosticSignWarn", text = "" },
 		{ name = "DiagnosticSignHint", text = "" },
@@ -23,7 +60,6 @@ M.setup = function()
 	end
 
 	local config = {
-		virtual_text = false, -- disable virtual text
 		signs = {
 			active = signs, -- show signs
 		},
@@ -41,14 +77,7 @@ M.setup = function()
 	}
 
 	vim.diagnostic.config(config)
-
-	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-		border = "rounded",
-	})
-
-	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-		border = "rounded",
-	})
+	vim.lsp.handlers = M.handlers
 end
 
 local function lsp_keymaps(bufnr)
