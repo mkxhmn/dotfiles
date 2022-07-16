@@ -55,13 +55,20 @@ return packer.startup(function(use)
 	use({ "ahmedkhalf/project.nvim", commit = "541115e762764bc44d7d3bf501b6e367842d3d4f" })
 	use({ "lewis6991/impatient.nvim", commit = "969f2c5c90457612c09cf2a13fee1adaa986d350" })
 	use({ "lukas-reineke/indent-blankline.nvim", commit = "6177a59552e35dfb69e1493fd68194e673dc3ee2" })
-	use({ "goolord/alpha-nvim", commit = "ef27a59e5b4d7b1c2fe1950da3fe5b1c5f3b4c94" })
 	use({ "norcalli/nvim-colorizer.lua" })
+	use({
+		"kylechui/nvim-surround",
+		config = function()
+			require("nvim-surround").setup()
+		end,
+	})
+	use({
+		"lewis6991/spellsitter.nvim",
+	})
 
 	-- Colorschemes
-	use({ "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" })
-	use("navarasu/onedark.nvim")
-	use({ "olimorris/onedarkpro.nvim" })
+	use({ "navarasu/onedark.nvim" })
+	use("rebelot/kanagawa.nvim")
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" }) -- The completion plugin
@@ -96,6 +103,7 @@ return packer.startup(function(use)
 	})
 	use({ "nvim-treesitter/nvim-treesitter-textobjects", after = { "nvim-treesitter" } })
 	use({ "RRethy/nvim-treesitter-textsubjects", after = { "nvim-treesitter" } })
+	use({ "p00f/nvim-ts-rainbow" })
 
 	-- search and replace
 	use({ "nvim-pack/nvim-spectre" })

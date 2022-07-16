@@ -1,24 +1,19 @@
 local status_ok, onedark = pcall(require, "onedark")
-if not status_ok then
-  return
+if status_ok then
+	onedark.setup({
+		style = "deep",
+	})
+	onedark.load()
 end
 
-onedark.setup({
-  style = "deep"
-})
-
-onedark.load()
-
-local status_onedarkpro_ok, onedarkpro = pcall(require, "onedarkpro")
-
-if not status_onedarkpro_ok then
-  return
+local status_ok_kanagawa, kanagawa = pcall(require, "kanagawa")
+if status_ok_kanagawa then
+	kanagawa.setup({
+		commentStyle = { italic = true },
+		keywordStyle = { italic = true, bold = true },
+		transparent = true, -- do not set background color
+		dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+	})
 end
 
-onedarkpro.setup({
-  theme="onedark_vivid"
-})
-
-
-vim.cmd("colorscheme onedark")
-
+vim.cmd("colorscheme kanagawa")

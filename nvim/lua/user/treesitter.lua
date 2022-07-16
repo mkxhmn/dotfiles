@@ -4,7 +4,21 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = "all", -- one of "all" or a list of languages
+	ensure_installed = {
+		"bash",
+		"css",
+		"go",
+		"yaml",
+		"html",
+		"json",
+		"markdown",
+		"python",
+		"rust",
+		"lua",
+		"vim",
+		"typescript",
+		"javascript",
+	}, -- one of "all" or a list of languages
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	highlight = {
 		enable = true, -- false will disable the whole extension
@@ -14,6 +28,18 @@ configs.setup({
 		enable = true,
 	},
 	indent = { enable = true, disable = { "python", "css" } },
+	rainbow = {
+		enable = false,
+		extended_mode = false,
+		max_file_lines = 1000,
+		colors = {
+			"#FF9E3B",
+			"#DCD7BA",
+			"#C34043",
+			"#7FB4CA",
+			"#B983FF",
+		},
+	},
 
 	textobjects = {
 		select = {

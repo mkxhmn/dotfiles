@@ -5,26 +5,36 @@ if not status_ok then
 end
 
 local servers = {
-	"sumneko_lua",
-	"cssls",
-	"html",
-	"tsserver",
-	"pyright",
 	"bashls",
-	"jsonls",
+	"cssls",
+	"emmet_ls",
+	"gopls",
 	"yamlls",
+	"html",
+	"jsonls",
+	"marksman",
+	"pyright",
+	"rust_analyzer",
+	"sumneko_lua",
+	"vimls",
+	"tsserver",
 }
 
 lsp_installer.setup({
 	ensure_installed = {
-		"sumneko_lua",
-		"cssls",
-		"html",
-		"tsserver",
-		"pyright",
 		"bashls",
-		"jsonls",
+		"cssls",
+		"emmet_ls",
+		"gopls",
 		"yamlls",
+		"html",
+		"jsonls",
+		"marksman",
+		"pyright",
+		"rust_analyze",
+		"sumneko_lua",
+		"tsserver",
+		"vimls",
 	},
 })
 
@@ -51,18 +61,25 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
 	end
 
+	if server == "yamlls" then
+		local yamlls_opts = require("user.lsp.settings.yamlls")
+		opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
+	end
+
 	if server == "tsserver" and typescript_ok then
-    local handlers = require("user.lsp.handlers")
-		return typescript.setup({
+		local handlers = require("user.lsp.handlers")
+		typescript.setup({
 			disable_commands = false,
 			debug = false,
 			server = {
 				capabilities = opts.capabilities,
 				on_attach = opts.on_attach,
-        handlers = handlers.handlers
+				handlers = handlers.handlers,
 			},
 		})
 	end
 
-	lspconfig[server].setup(opts)
+	if server ~= "tsserver" then
+		lspconfig[server].setup(opts)
+	end
 end
