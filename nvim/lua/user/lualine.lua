@@ -28,13 +28,14 @@ local filetype = {
 	icons_enabled = false,
 }
 
-local location = {
-	"location",
-	padding = 0,
-}
+local relative_path_from_root = function ()
+  local path = vim.fn.expand('%')
+  local workspace = vim.lsp.buf.list_workspace_folders()
 
-local spaces = function()
-	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+  print("workspace", workspace[1])
+  print(path)
+
+  return vim.fn.expand("%")
 end
 
 lualine.setup({
@@ -42,17 +43,17 @@ lualine.setup({
 		globalstatus = true,
 		icons_enabled = true,
 		theme = "auto",
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "alpha", "dashboard" },
+		section_separators = { left = "", right = "" },
+		component_separators = "",
+		disabled_filetypes = { "dashboard" },
 		always_divide_middle = true,
 	},
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = { "branch" },
-		lualine_c = { diagnostics },
-		lualine_x = { diff, spaces, "encoding", filetype },
-		lualine_y = { location },
+		lualine_c = { diagnostics, "%=",relative_path_from_root},
+		lualine_x = { diff, filetype },
+		lualine_y = { "location" },
 		lualine_z = { "progress" },
 	},
 })
