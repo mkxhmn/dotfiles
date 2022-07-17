@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en",
+  "import": [
+    "@cspell/dict-bash/cspell-ext.json",
+    "@cspell/dict-css/cspell-ext.json",
+    "@cspell/dict-docker/cspell-ext.json",
+    "@cspell/dict-fullstack/cspell-ext.json",
+    "@cspell/dict-golang/cspell-ext.json",
+    "@cspell/dict-html-symbol-entities/cspell-ext.json",
+    "@cspell/dict-lua/cspell-ext.json",
+    "@cspell/dict-node/cspell-ext.json",
+    "@cspell/dict-python/cspell-ext.json",
+    "@cspell/dict-rust/cspell-ext.json",
+    "@cspell/dict-typescript/cspell-ext.json"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "vim",
+      "path": "./dictionary/vim.txt",
+      "addWords": true
+    }
+  ]
+}

@@ -62,9 +62,6 @@ return packer.startup(function(use)
 			require("nvim-surround").setup()
 		end,
 	})
-	use({
-		"lewis6991/spellsitter.nvim",
-	})
 
 	-- Colorschemes
 	use({ "navarasu/onedark.nvim" })

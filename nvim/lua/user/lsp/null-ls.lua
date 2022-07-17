@@ -21,7 +21,28 @@ null_ls.setup({
 		formatting.stylua,
 
 		diagnostics.eslint,
-		diagnostics.cspell,
+		diagnostics.cspell.with({
+			filetypes = {
+				"bash",
+				"css",
+				"lua",
+				"docker",
+				"go",
+				"rust",
+				"json",
+				"yaml",
+				"markdown",
+				"typescriptreact",
+				"typescript",
+				"javascript",
+				"javascriptreact",
+			},
+			extra_args = {
+				"--config",
+				vim.fn.expand("~/.dotfiles/cspell/.cspell.json"),
+				"--show-suggestions",
+			},
+		}),
 
 		code_actions.eslint,
 		code_actions.gitsigns,
