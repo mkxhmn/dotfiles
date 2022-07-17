@@ -39,8 +39,9 @@ null_ls.setup({
 			},
 			extra_args = {
 				"--config",
-				vim.fn.expand("~/.dotfiles/cspell/.cspell.json"),
+				vim.fn.expand("~/.dotfiles/cspell/cspell.json"),
 				"--show-suggestions",
+        "-v"
 			},
 		}),
 

@@ -15,11 +15,13 @@
     "@cspell/dict-rust/cspell-ext.json",
     "@cspell/dict-typescript/cspell-ext.json"
   ],
+  "dictionaries": ["vim"],
   "dictionaryDefinitions": [
     {
       "name": "vim",
       "path": "./dictionary/vim.txt",
       "addWords": true
     }
-  ]
+  ],
+  "ignorePaths": ["node_modules"]
 }
