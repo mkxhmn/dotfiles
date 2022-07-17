@@ -92,6 +92,7 @@ cmp.setup({
 			"s",
 		}),
 	}),
+
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
@@ -107,22 +108,43 @@ cmp.setup({
 			return vim_item
 		end,
 	},
+
 	sources = {
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lsp_signature_help" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
+		{ name = "cmdline" },
 	},
+
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
 	},
+
 	window = {
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 	},
+
 	experimental = {
 		ghost_text = true,
 	},
+})
+
+-- cmdline
+cmp.setup.cmdline(":", {
+	sources = {
+		{ name = "cmdline" },
+	},
+})
+
+cmp.setup.cmdline("/", {
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp_document_symbol" },
+	}, {
+		{ name = "buffer" },
+	}),
 })
