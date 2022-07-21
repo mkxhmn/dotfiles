@@ -15,11 +15,21 @@
     "@cspell/dict-rust/cspell-ext.json",
     "@cspell/dict-typescript/cspell-ext.json"
   ],
-  "dictionaries": ["vim"],
+  "dictionaries": ["me", "vim", "javascript-development"],
   "dictionaryDefinitions": [
+    {
+      "name": "me",
+      "path": "./dictionary/me.txt",
+      "addWords": true
+    },
     {
       "name": "vim",
       "path": "./dictionary/vim.txt",
+      "addWords": true
+    },
+    {
+      "name": "javascript-development",
+      "path": "./dictionary/javascript-development.txt",
       "addWords": true
     }
   ],
