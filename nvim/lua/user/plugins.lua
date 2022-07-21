@@ -62,10 +62,24 @@ return packer.startup(function(use)
 			require("nvim-surround").setup()
 		end,
 	})
+	use({
+		"karb94/neoscroll.nvim",
+		config = function()
+			require("neoscroll").setup()
+		end,
+	})
+	use({
+		"folke/todo-comments.nvim",
+		config = function()
+			require("todo-comments").setup()
+		end,
+	})
+  use({"ThePrimeagen/harpoon"})
 
 	-- Colorschemes
 	use({ "navarasu/onedark.nvim" })
 	use("rebelot/kanagawa.nvim")
+	use("folke/tokyonight.nvim")
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" }) -- The completion plugin
@@ -108,6 +122,24 @@ return packer.startup(function(use)
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" })
+	use({
+		"TimUntersberger/neogit",
+		config = function()
+			require("neogit").setup()
+		end,
+	})
+	use({
+		"sindrets/diffview.nvim",
+		config = function()
+			require("diffview").setup()
+		end,
+	})
+	use({
+		"/pwntester/octo.nvim",
+		config = function()
+			require("octo").setup()
+		end,
+	})
 
 	-- DAP
 	use({ "mfussenegger/nvim-dap", commit = "014ebd53612cfd42ac8c131e6cec7c194572f21d" })
