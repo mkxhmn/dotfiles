@@ -1,3 +1,9 @@
+keymaps
+autocommands
+treesitter
+autopairs
+toggleterm
+indentline
 golangci
 keymap
 noremap
