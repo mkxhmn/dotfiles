@@ -33,7 +33,8 @@ local relative_path_from_root = function()
 	local workspace = vim.lsp.buf.list_workspace_folders()
 
 	if workspace[1] ~= nil then
-		return path:gsub("%" .. workspace[1], "")
+    local sub_path = "" .. path
+		return sub_path:gsub("%" .. workspace[1], "")
 	end
 
 	return path
