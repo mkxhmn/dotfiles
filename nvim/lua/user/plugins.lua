@@ -73,7 +73,8 @@ return packer.startup(function(use)
 			require("todo-comments").setup()
 		end,
 	})
-  use({"ThePrimeagen/harpoon"})
+	use({"iamcco/markdown-preview.nvim"})
+	use({ "ThePrimeagen/harpoon" })
 
 	-- Colorschemes
 	use({ "navarasu/onedark.nvim" })
@@ -131,12 +132,6 @@ return packer.startup(function(use)
 		"sindrets/diffview.nvim",
 		config = function()
 			require("diffview").setup()
-		end,
-	})
-	use({
-		"/pwntester/octo.nvim",
-		config = function()
-			require("octo").setup()
 		end,
 	})
 
