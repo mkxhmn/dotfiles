@@ -23,4 +23,4 @@ if status_ok_tokyonight then
   vim.g.tokyonight_transparent =true
 end
 
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme tokyonight")
