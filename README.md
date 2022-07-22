@@ -9,7 +9,7 @@
 
 ## References
 
-1. [Neovim Startring Point](https://github.com/LunarVim/nvim-basic-ide)
+1. [Neovim Starting Point](https://github.com/LunarVim/nvim-basic-ide)
 
 ### Special gratitude to 
 1. [@tjdevries](https://github.com/tjdevries) 
